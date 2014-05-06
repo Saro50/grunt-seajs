@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+</head>
+<body>
+<div>
+	<button data-action='hjs_show_win' >show</button>
+</div>
+<script type="text/template" id='win_template'>
+  <div ><span class='c-success'></span>12312</div>
+</script>
+<script src="../seajs_modules/seajs/seajs/2.2.0/sea.js" id="seajsnode" ></script>
+<script src="../seajs_modules/seajs/seajs-style/1.0.2/seajs-style.js" ></script>
+<script>
+  // Set configurationX
+
+  // For development
+  if (location.href.indexOf("?dev") > 0) {
+    seajs.config({
+      base: "../seajs_modules",
+      alias: {
+        "jquery": "jquery/jquery/1.10.1/jquery",
+        "hjs" : "hjs/1.0/hjs"
+      },
+      debug:1
+    });
+
+    seajs.use( "app/test/src/test");
+  }
+  // For production
+  else {
+    seajs.config({
+      base: "http://js.wn.com/seajs_modules",
+      alias: {
+        "jquery": "jquery/jquery/1.10.1/jquery",
+        "hjs" : "hjs/1.0/hjs"
+      },
+      debug:1
+    });
+
+    seajs.use( "app/test/dist/test");
+  }
+
+</script>
+</body>
+</html>

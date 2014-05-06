@@ -1,0 +1,58 @@
+/**
+ * commom style 
+ * 	@author : wn
+ * 	@date: 2013-10-11
+ */
+#wn() {
+
+
+ 	.reset(){
+ 		html,body,ul,p{
+ 			padding:0px;
+ 			margin:0px;
+ 		}
+ 	
+ 	}
+
+
+
+ /**
+  * two kinds of title
+  * @param border-top | border-left
+  */
+
+	.title( border-top , @color){
+			padding-top:0.5em;
+			padding-left:1em;
+			border-top : 5px solid lighten( @color , 60% );
+			color : @color ;
+	}
+	.title( border-left , @color){
+		border-left: 2px solid @color;
+		padding-left:1em;
+		color: @color;
+	}
+	.link(@color:blue , @hover:red ){
+		color:@color;
+		text-decoration: none;
+		&:hover{
+			color : @hover;
+		}	
+	}
+	.button(round){
+		border-radius: 10px;
+		height: 10px;
+	}
+	.navigator(){
+	}
+	.layout(){
+
+	}
+	.font(){
+
+	}
+	.blockCenter(){
+		margin-left:auto;
+		margin-right:auto;
+	}
+}

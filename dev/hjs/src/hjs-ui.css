@@ -1,0 +1,198 @@
+/*---------------------------------------------------
+		LESS Elements 0.5
+	---------------------------------------------------
+		A set of useful LESS mixins by Dmitry Fadeyev
+		Special thanks for mixin suggestions to:
+			Kris Van Herzeele,
+			Benoit Adam,
+			Portenart Emile-Victor
+			
+		More info at: http://lesselements.com
+-----------------------------------------------------*/
+/**
+ *  @CSS shape
+ */
+.triangle-up {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid red;
+}
+.triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 100px solid red;
+}
+.triangle-left {
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-right: 100px solid red;
+  border-bottom: 50px solid transparent;
+}
+.triangle-right {
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-left: 100px solid red;
+  border-bottom: 50px solid transparent;
+}
+.triangle-topleft {
+  width: 0;
+  height: 0;
+  border-top: 100px solid red;
+  border-right: 100px solid transparent;
+}
+.triangle-topright {
+  width: 0;
+  height: 0;
+  border-top: 100px solid red;
+  border-left: 100px solid transparent;
+}
+.triangle-bottomleft {
+  width: 0;
+  height: 0;
+  border-bottom: 100px solid red;
+  border-right: 100px solid transparent;
+}
+.c-cover {
+  -moz-opacity: 60;
+  -khtml-opacity: 60;
+  -webkit-opacity: 60;
+  opacity: 60;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  background-color: #000;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: 998;
+}
+.c-window {
+  position: fixed;
+  border: 3px solid #f67a16;
+  z-index: 999;
+  top: 300px;
+  padding: 15px;
+  left: 300px;
+  padding-bottom: 35px;
+  background-color: #fff;
+}
+.c-window .c-w-h {
+  position: relative;
+  padding: 0px 0px 15px 0px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.c-window .c-w-h strong {
+  font-size: 14px;
+}
+.c-window .c-w-h .c-w-close {
+  cursor: pointer;
+  display: block;
+  background: url("img/w_bg.png") no-repeat 5px 1px;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 2px;
+  top: -1px;
+}
+.c-window .c-w-wrap {
+  padding: 0px 80px;
+}
+.c-window .c-w-section {
+  padding: 0px 80px;
+  min-height: 40px;
+  line-height: 40px;
+}
+.c-window .c-w-section table th {
+  font-size: 12px;
+}
+.c-window .c-w-section .c-inpt180,
+.c-window .c-w-section .c-inpt80 {
+  margin: 0px 10px;
+}
+.c-window .c-w-section strong {
+  font-weight: 400;
+  font-size: 14px;
+}
+.c-window .c-w-sp {
+  background-color: #fafafa;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.c-window .c-w-t {
+  padding: 20px 0px;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+}
+.c-window .c-w-foot {
+  text-align: center;
+}
+.c-window .c-w-foot input {
+  font-size: 16px;
+  font-family: "微软雅黑";
+  padding: .5em 2em;
+  margin-right: 15px;
+  box-shadow: 1px 1px 3px #ccc;
+}
+.c-window .c-w-list {
+  line-height: 2em;
+}
+.c-window .c-w-list li {
+  height: 2em;
+}
+.c-window .c-fail,
+.c-window .c-success {
+  background: url("img/status.png") no-repeat;
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  margin: 0px 10px;
+  display: inline-block;
+}
+.c-window .c-fail {
+  background-position: 0px -73px;
+}
+.c-window .c-paragraph {
+  padding: 10px 0px;
+}
+.c-window .c-paragraph a {
+  color: #0000ff;
+}
+
+.c-guide{
+  border:2px solid #ccc;
+  background-color: #fff;
+  padding: 20px;
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  border-radius: 5px;
+  box-shadow: 1px 1px 7px #333 inset;
+  z-index:1000;
+}
+.c-guide .arrow-right,
+.c-guide .arrow-left{
+  height: 0px;
+  width: 0px;
+  border: 8px solid transparent;
+  border-right: 8px solid #ccc;
+  line-height: 0px;
+  position: absolute;
+}
+.c-guide .arrow-left{
+  top: 20px;
+  left: -18px;
+}
+.c-guide .arrow-right{
+  border-right:8px solid transparent;
+  border-left: 8px solid #ccc;
+  right: -18px;
+  top: 20px; 
+}

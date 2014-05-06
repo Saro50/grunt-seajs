@@ -1,0 +1,256 @@
+/*---------------------------------------------------
+		LESS Elements 0.5
+	---------------------------------------------------
+		A set of useful LESS mixins by Dmitry Fadeyev
+		Special thanks for mixin suggestions to:
+			Kris Van Herzeele,
+			Benoit Adam,
+			Portenart Emile-Victor
+			
+		More info at: http://lesselements.com
+-----------------------------------------------------*/
+
+.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF) {
+	background: @color;
+	background: -webkit-gradient(linear,
+	    												 left bottom,
+	    												 left top,
+	    												 @start,
+	    												 @stop);
+	background: -moz-linear-gradient(center bottom,
+	    														 @start 0%,
+	    														 @stop 100%);
+}
+.bw-gradient(@color: #F5F5F5, @start: 0, @stop: 255) {
+	background: @color;
+	background: -webkit-gradient(linear,
+	    												 left bottom,
+	    												 left top,
+	    												 color-stop(0, rgb(@start,@start,@start)),
+	    												 color-stop(1, rgb(@stop,@stop,@stop)));
+	background: -moz-linear-gradient(center bottom,
+	    														 rgb(@start,@start,@start) 0%,
+	    														 rgb(@stop,@stop,@stop) 100%);
+}
+.bordered(@top-color: #EEE, @right-color: #EEE, @bottom-color: #EEE, @left-color: #EEE) {
+	border-top: solid 1px @top-color;
+	border-left: solid 1px @left-color;
+	border-right: solid 1px @right-color;
+	border-bottom: solid 1px @bottom-color;
+}
+.drop-shadow(@x-axis: 0, @y-axis: 1px, @blur: 2px, @alpha: 0.1) {
+	-webkit-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+	-moz-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+	box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+}
+.rounded(@radius: 2px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+.border-radius(@topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0) {
+	-webkit-border-top-right-radius: @topright;
+	-webkit-border-bottom-right-radius: @bottomright;
+	-webkit-border-bottom-left-radius: @bottomleft;
+	-webkit-border-top-left-radius: @topleft;
+	-moz-border-radius-topright: @topright;
+	-moz-border-radius-bottomright: @bottomright;
+	-moz-border-radius-bottomleft: @bottomleft;
+	-moz-border-radius-topleft: @topleft;
+	border-top-right-radius: @topright;
+	border-bottom-right-radius: @bottomright;
+	border-bottom-left-radius: @bottomleft;
+	border-top-left-radius: @topleft;
+}
+.opacity(@opacity: 0.5) {
+	-moz-opacity: @opacity;
+	-khtml-opacity: @opacity;
+	-webkit-opacity: @opacity;
+	opacity: @opacity;
+}
+.transition-duration(@duration: 0.2s) {
+	-moz-transition-duration: @duration;
+	-webkit-transition-duration: @duration;
+	transition-duration: @duration;
+}
+.rotation(@deg:5deg){ 
+  -webkit-transform: rotate(@deg);
+  -moz-transform: rotate(@deg);
+  transform: rotate(@deg);
+}
+.scale(@ratio:1.5){
+	-webkit-transform:scale(@ratio);
+ 	-moz-transform:scale(@ratio);
+	transform:scale(@ratio);
+}
+.transition(@duration:0.2s, @ease:ease-out) {
+  -webkit-transition: all @duration @ease;
+  -moz-transition: all @duration @ease;
+  transition: all @duration @ease;
+}
+.inner-shadow(@horizontal:0, @vertical:1px, @blur:2px, @alpha: 0.4) {
+  -webkit-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+	box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+}
+.box-shadow(@arguments) {
+	-webkit-box-shadow: @arguments;
+	-moz-box-shadow: @arguments;
+	box-shadow: @arguments;
+}
+.columns(@colwidth: 250px, @colcount: 0, @colgap: 50px, @columnRuleColor: #EEE, @columnRuleStyle: solid, @columnRuleWidth: 1px) {
+	-moz-column-width: @colwidth;
+	-moz-column-count: @colcount;
+	-moz-column-gap: @colgap;
+	-moz-column-rule-color: @columnRuleColor;
+	-moz-column-rule-style: @columnRuleStyle;
+	-moz-column-rule-width: @columnRuleWidth;
+	-webkit-column-width: @colwidth;
+	-webkit-column-count: @colcount;
+	-webkit-column-gap: @colgap;
+	-webkit-column-rule-color: @columnRuleColor;
+	-webkit-column-rule-style: @columnRuleStyle;
+	-webkit-column-rule-width: @columnRuleWidth;
+	column-width: @colwidth;
+	column-count: @colcount;
+	column-gap: @colgap;
+	column-rule-color: @columnRuleColor;
+	column-rule-style: @columnRuleStyle;
+	column-rule-width: @columnRuleWidth;
+}
+
+/**
+ *  @CSS shape
+ */
+
+.triangle-up {
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 100px solid red;
+}
+
+
+.triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-top: 100px solid red;
+}
+
+.triangle-left {
+	width: 0;
+	height: 0;
+	border-top: 50px solid transparent;
+	border-right: 100px solid red;
+	border-bottom: 50px solid transparent;
+}
+
+.triangle-right {
+	width: 0;
+	height: 0;
+	border-top: 50px solid transparent;
+	border-left: 100px solid red;
+	border-bottom: 50px solid transparent;
+}
+
+.triangle-topleft {
+	width: 0;
+	height: 0;
+	border-top: 100px solid red;
+	border-right: 100px solid transparent;
+}
+
+.triangle-topright {
+	width: 0;
+	height: 0;
+	border-top: 100px solid red;
+	border-left: 100px solid transparent;
+
+}
+
+.triangle-bottomleft {
+	width: 0;
+	height: 0;
+	border-bottom: 100px solid red;
+	border-right: 100px solid transparent;
+}
+
+.triangle-bottomright( @size , @color ){
+	width: 0;
+	height: 0;
+	border-bottom: @size solid @color;
+	border-left: @size solid transparent;
+}
+
+
+.curvedarrow(@color:red) {
+  font-size: 0px;
+  position: relative;
+  width: 0;
+  height: 0;
+  border-top: 9px solid transparent;
+  border-right: 9px solid @color;
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+  &:after{
+  	  content: "";
+	  position: absolute;
+	  border: 0 solid transparent;
+	  border-top: 3px solid @color;
+	  border-radius: 20px 0 0 0;
+	  top: -12px;
+	  left: -9px;
+	  width: 12px;
+	  height: 12px;
+	  -webkit-transform: rotate(45deg);
+	  -moz-transform: rotate(45deg);
+	  -ms-transform: rotate(45deg);
+	  -o-transform: rotate(45deg);
+  }
+}
+
+.heart(@size:100px , @color:red) {
+    position: relative;
+    width: @size;
+    height: @size*0.9;
+    &:before,
+    &:after{
+	    position: absolute;
+	    content: "";
+	    left: @size/2;
+	    top: 0;
+	    width: @size/2;
+	    height: @size*0.8;
+	    background: @color;
+	    -moz-border-radius: @size/2 @size/2 0 0;
+	    border-radius: @size/2 @size/2 0 0;
+	    -webkit-transform: rotate(-45deg);
+	       -moz-transform: rotate(-45deg);
+	        -ms-transform: rotate(-45deg);
+	         -o-transform: rotate(-45deg);
+	            transform: rotate(-45deg);
+	    -webkit-transform-origin: 0 100%;
+	       -moz-transform-origin: 0 100%;
+	        -ms-transform-origin: 0 100%;
+	         -o-transform-origin: 0 100%;
+	            transform-origin: 0 100%;
+    }
+    &:after{
+    	left: 0;
+	    -webkit-transform: rotate(45deg);
+	       -moz-transform: rotate(45deg);
+	        -ms-transform: rotate(45deg);
+	         -o-transform: rotate(45deg);
+	            transform: rotate(45deg);
+	    -webkit-transform-origin: 100% 100%;
+	       -moz-transform-origin: 100% 100%;
+	        -ms-transform-origin: 100% 100%;
+	         -o-transform-origin: 100% 100%;
+	            transform-origin :100% 100%;
+    }
+}

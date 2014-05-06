@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset ='utf-8' >
+<title>intro</title>
+<style type="text/css">
+	.blue-box{
+		background-color: #069;
+		height: 100px;
+		width: 100px;
+		padding: 20px;
+		font-size: 24px;
+		color: #fff;
+		margin: 0px auto
+	}
+	.orange-box{
+		background-color: #EBB58C;
+		position: absolute;
+		padding: 20px;
+		left: 200px;
+		top: 200px;
+		color: #fff;
+	}
+	.orange-box-nope{
+		background-color: #EBB58C;
+		float: right;
+		padding: 20px;
+		color: #fff;
+		display: inline-block;
+	}
+	.detail{
+		background-color: #fff;
+		display: block;
+		padding: 20px;
+		font-size: 24px;
+		color: #069;
+	}
+</style>
+</head>
+<body>
+	<div id='item1' data-step='0' class='blue-box' data-message="这是步骤一" >
+	 step1
+	 	<div data-step='1' data-message="这是步骤二" >
+			<span class='detail' >step2</span>	
+		</div>
+	</div>
+	
+<!-- 	<div class='message' >
+		<span class='arrow-up'></span>
+		<div>
+			这是步骤一
+		</div>
+	</div> -->
+
+	<div id='item2' class='orange-box' data-step='2' data-message="这是步骤三">
+			step3;
+	</div>
+
+	<div id='item2' class='orange-box-nope' data-step='3' data-message="这是步骤四">
+			step4;
+	</div>
+<script src="../seajs_modules/seajs/seajs/2.2.0/sea.js" id="seajsnode" ></script>
+<script type="text/javascript">
+    seajs.config({
+      base: "../dev",
+      alias: {
+        "jquery": "jquery/jquery/1.10.1/jquery",
+        "hjs" : "hjs/src/hjs"
+      },
+      debug:1
+    });
+    seajs.use("../dev/vi_guide/guide");
+</script>
+</body>
+</html>

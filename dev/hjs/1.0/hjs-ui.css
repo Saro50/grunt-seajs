@@ -1,0 +1,178 @@
+/*---------------------------------------------------
+    LESS Elements 0.5
+  ---------------------------------------------------
+    A set of useful LESS mixins by Dmitry Fadeyev
+    Special thanks for mixin suggestions to:
+      Kris Van Herzeele,
+      Benoit Adam,
+      Portenart Emile-Victor
+      
+    More info at: http://lesselements.com
+-----------------------------------------------------*/
+/**
+ *  @CSS shape
+ */
+.triangle-up {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid red;
+}
+.triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 100px solid red;
+}
+.triangle-left {
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-right: 100px solid red;
+  border-bottom: 50px solid transparent;
+}
+.triangle-right {
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-left: 100px solid red;
+  border-bottom: 50px solid transparent;
+}
+.triangle-topleft {
+  width: 0;
+  height: 0;
+  border-top: 100px solid red;
+  border-right: 100px solid transparent;
+}
+.triangle-topright {
+  width: 0;
+  height: 0;
+  border-top: 100px solid red;
+  border-left: 100px solid transparent;
+}
+.triangle-bottomleft {
+  width: 0;
+  height: 0;
+  border-bottom: 100px solid red;
+  border-right: 100px solid transparent;
+}
+.c-cover {
+  -moz-opacity: 60;
+  -khtml-opacity: 60;
+  -webkit-opacity: 60;
+  opacity: 60;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  background-color: #000;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: 998;
+}
+.c-window {
+  position: fixed;
+  box-shadow: 1px 3px 7px #555;
+  border-radius: 5px;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  padding-bottom: 30px;
+  background-color: #fff;
+}
+.c-window .c-w-h {
+  position: relative;
+  background:url("http://www.p2pstatic.com/theme/1.0/images/wbg.gif") no-repeat right center;
+  padding:15px 105px 15px 20px;
+  background-color: #f67914;
+  border-radius: 5px 5px 0px 0px;
+  color: #fff;
+  font-family: Microsoft YaHei, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  border-bottom: 1px solid #e0e0e0;
+}
+.c-window .c-w-h strong {
+  background:url("http://www.p2pstatic.com/theme/1.0/images/win_icon.png") no-repeat -3px -156px;
+  padding-left: 25px;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 400;
+}
+.c-window .c-w-h .c-w-close {
+  cursor: pointer;
+  display: block;
+  background: url("http://www.p2pstatic.com/theme/1.0/images/win_icon.png") no-repeat -0px -0px;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right:15px;
+  top: 12px;
+}
+.c-window .c-w-wrap {
+  padding: 0px 80px;
+}
+.c-window .c-w-section {
+  padding: 0px 40px;
+  min-height: 40px;
+  line-height: 40px;
+}
+.c-window .c-w-section table th {
+  font-size: 12px;
+}
+.c-window .c-w-section .c-inpt180,
+.c-window .c-w-section .c-inpt80 {
+  margin: 0px 10px;
+}
+.c-window .c-w-section strong {
+  font-weight: 400;
+  font-size: 14px;
+}
+.c-window .c-w-sp {
+  background-color: #fafafa;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.c-window .c-w-t {
+  padding: 20px 0px;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+}
+.c-window .c-w-foot {
+  text-align: center;
+}
+.c-window .c-w-foot input {
+  font-size: 16px;
+  font-family: "微软雅黑";
+  padding: .5em 2em;
+  margin-right: 15px;
+  box-shadow: 1px 1px 3px #ccc;
+}
+.c-window .c-w-list {
+  line-height: 2em;
+}
+.c-window .c-w-list li {
+  height: 2em;
+}
+.c-window .c-fail,
+.c-window .c-success {
+  background: url("http://www.p2pstatic.com/theme/1.0/images/win_icon.png") no-repeat 0px -50px;
+
+  width: 25px;
+  height: 20px;
+  vertical-align: middle;
+  margin: 0px 10px;
+  display: inline-block;
+}
+.c-window .c-fail {
+  background-position:0px -104px;
+}
+.c-window .c-paragraph {
+  padding: 10px 0px;
+}
+.c-window .c-paragraph a {
+  color: #0000ff;
+}
