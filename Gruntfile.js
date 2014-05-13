@@ -129,3 +129,99 @@ module.exports = function (grunt) {
     grunt.registerTask("default",["transport:my_test","concat:other","uglify:main" ,"cssmin:minstyle" ]);
     grunt.registerTask("vivi" , ["uglify:vivi"])
 };
+
+// module.exports = function (grunt) {
+
+//   var transport = require('grunt-cmd-transport');
+//   var style = transport.style.init(grunt);
+//   var text = transport.text.init(grunt);
+//   var script = transport.script.init(grunt);
+  
+//   var config = {
+
+//   };
+
+//     grunt.initConfig({
+//         pkg : grunt.file.readJSON("package.json"),
+//         transport: {
+//             options : {
+//                 alias :'<%= pkg.spm.alias %>',
+//                 parsers : {
+//                 '.js' : [script.jsParser],
+//                 '.css' : [style.css2jsParser],
+//                 '.html' : [text.html2jsParser]
+//                 }
+//             },
+//             hjs: {
+//                 options : {
+//                   idleading : 'hjs/1.0/',
+//                 } , 
+//                 files : [{
+//                     cwd: 'dev/hjs/1.0/',
+//                     src: ['*.css'],
+//                     dest: '.build'
+//                 },{
+//                     cwd: 'dev/hjs/1.0/',
+//                     src: ['*.js'],
+//                     dest: '.build'
+//                 }]
+//             }
+//         },
+//         concat : {
+//               options : {
+//               // paths : ['.build'],
+//               // include : 'relative',
+//               // noncmd: true
+//               },
+//               hjs : {
+//                 files : [{
+//                       src: ['.build/*.js',"!.build/*-debug*.js"],
+//                       dest: 'seajs_modules/hjs/1.0/hjs.js'
+//                   },{
+//                       src: [".build/*-debug*.js"],
+//                       dest: 'seajs_modules/hjs/1.0/hjs-debug.js'
+//                   }]
+//               }
+//         },
+//         uglify : {
+//             options: {
+//               mangle: {
+//                 except: ['require', 'define' , "exports", "module"]
+//               }
+//             },
+//             hjs : {
+//               files : [{
+//                     expand: true,
+//                     cwd:  'seajs_modules/hjs/1.0/',
+//                     src: ['*.js', '!*-debug.js'],
+//                     dest: 'seajs_modules/hjs/1.0/',
+//                     ext: '.js'
+//                 }]
+//             }
+//         },
+//         cssmin: {
+//           minstyle: {
+//             files:[{
+//                 expand: true,
+//                 cwd: 'seajs_modules/app/test/src/',
+//                 src: ['*.css', '!*-debug.css'],
+//                 dest: 'seajs_modules/app/test/dist/',
+//                 ext: '.css'
+//               }]
+//           }
+//         }
+//     });
+   
+//     grunt.loadNpmTasks('grunt-cmd-transport');
+//     grunt.loadNpmTasks('grunt-cmd-concat');
+//     grunt.loadNpmTasks('grunt-contrib-clean');
+//     grunt.loadNpmTasks('grunt-contrib-uglify');
+//     grunt.loadNpmTasks('grunt-contrib-cssmin');
+//     // grunt.registerTask('build-styles', ['transport:styles', 'concat:styles', 'uglify:styles', 'clean']);
+//     // grunt.registerTask('build-app1', ['transport:app1', 'concat:app1', 'uglify:app1', 'clean']);
+
+//     grunt.registerTask("default",["transport:hjs","concat:other","uglify:main" ,"cssmin:minstyle" ]);
+//     grunt.registerTask("hjs",["transport:hjs" , "concat:hjs" , "uglify:hjs"]);
+//     // grunt.registerTask("hjs",["transport:hjs" ]);
+//     grunt.registerTask("vivi" , ["uglify:vivi"])
+// };

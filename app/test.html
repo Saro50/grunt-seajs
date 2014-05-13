@@ -2,17 +2,21 @@
 <html>
 <head>
 	<title>test</title>
+  <meta charset='utf-8'>
 </head>
 <body>
-<div>
-	<button data-action='hjs_show_win' >show</button>
-</div>
+	<!-- <button data-action='hjs_show_win' >show</button> -->
+
 <script type="text/template" id='win_template'>
   <div ><span class='c-success'></span>12312</div>
+  <div ><span class='c-fail'></span>12312</div>
 </script>
 <script src="../seajs_modules/seajs/seajs/2.2.0/sea.js" id="seajsnode" ></script>
 <script src="../seajs_modules/seajs/seajs-style/1.0.2/seajs-style.js" ></script>
 <script>
+
+
+  // alert("\uD842\uDFB7");
   // Set configurationX
 
   // For development
@@ -26,7 +30,7 @@
       debug:1
     });
 
-    seajs.use( "app/test/src/test");
+    // seajs.use( "app/test/src/test");
   }
   // For production
   else {
@@ -39,9 +43,63 @@
       debug:1
     });
 
-    seajs.use( "app/test/dist/test");
+    // seajs.use( "app/test/dist/test");
   }
 
+
+// (；д；)  
+// ( ﾟДﾟ)σ
+// (o`･ω･)ﾉ(ﾉД`) 
+// (╯‵□′)╯︵┻━┻ 我掀！
+// (╯‵皿′)╯︵┻━┻ 我再掀！
+// (#＝皿＝)╯︵┻━┻ 我单手掀！
+
+if(!console){
+   var scenes = function(){
+    var act = true,
+      putScene = ["%c ┬─┬ ノ( ' - 'ノ)","%c ┬─┬ ノ( @ - @ノ)☆","%c ┬─┬ ノ( ^ v ^ノ)","%c ┬─┬ ノ( < _ < ノ)"],
+      tableScene = [
+                  "%c (╯' - ')╯︵ ┻━┻",
+                  "%c (╯°Д°)╯︵ ┻━┻",
+                  "%c (#＝皿＝)╯︵┻━┻ ",
+                  "%c (╯‵皿′)╯︵┻━┻ ",
+                  "%c (╯′ -｀)╯ ┫:·'∵:.┻┻:·'.:┣∵·:. ┳┳☆"],
+      putWords = [
+        "咦，有张桌子 ? ",
+        "哇塞，运气好好，又有一张",
+        "就要吃饭饭了~看我的饭桌 ",
+        "天上掉下个大桌子~~",
+        "这桌子摸起来好滑！"
+        ],
+      tableWords = [
+      "哎哟!手滑",
+      "试试质量!",
+      "我掀！",
+      "小手一抖，桌子飞走",
+      "人生真是寂寞如雪!"],
+      shape = "font-size:32px;color:#333;font-family:Helvetica, Arial, sans-serif;text-shadow:1px 1px 7px #000;";
+
+    return function(){
+        var movie = "", w_num = 0 , t_num = 0;
+        if(act){
+          var w_num = Math.ceil( putScene.length * Math.random() ) - 1,
+              t_num = Math.ceil( putWords.length * Math.random() ) - 1;
+          movie = putScene[w_num] + " " + putWords[t_num]; 
+        }else{
+          var w_num = Math.ceil( tableScene.length * Math.random() ) - 1,
+              t_num = Math.ceil( tableWords.length * Math.random() ) - 1;
+          movie = tableScene[w_num] + " " + tableWords[t_num];   
+        }
+          act =!act;
+          console.clear();
+          console.log( movie , shape );
+          // console.log(scene[act++],shape );
+        }
+  }();
+  setInterval(function(){
+    scenes();
+  },1500);
+}
 </script>
 </body>
 </html>
