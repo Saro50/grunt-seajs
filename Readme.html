@@ -1,314 +1,143 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><style>html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
 
-body{
-  color:#444;
-  font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman',
-              "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
-  font-size:12px;
-  line-height:1.5em;
-  background:#fefefe;
-  width: 45em;
-  margin: 10px auto;
-  padding: 1em;
-  outline: 1300px solid #FAFAFA;
-}
+    <title>createMediaElementSource example</title>
 
-a{ color: #0645ad; text-decoration:none;}
-a:visited{ color: #0b0080; }
-a:hover{ color: #06e; }
-a:active{ color:#faa700; }
-a:focus{ outline: thin dotted; }
-a:hover, a:active{ outline: 0; }
-
-span.backtick {
-  border:1px solid #EAEAEA;
-  border-radius:3px;
-  background:#F8F8F8;
-  padding:0 3px 0 3px;
-}
-
-::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
-::selection{background:rgba(255,255,0,0.3);color:#000}
-
-a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
-a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
-
-p{
-margin:1em 0;
-}
-
-img{
-max-width:100%;
-}
-
-h1,h2,h3,h4,h5,h6{
-font-weight:normal;
-color:#111;
-line-height:1em;
-}
-h4,h5,h6{ font-weight: bold; }
-h1{ font-size:2.5em; }
-h2{ font-size:2em; border-bottom:1px solid silver; padding-bottom: 5px; }
-h3{ font-size:1.5em; }
-h4{ font-size:1.2em; }
-h5{ font-size:1em; }
-h6{ font-size:0.9em; }
-
-blockquote{
-color:#666666;
-margin:0;
-padding-left: 3em;
-border-left: 0.5em #EEE solid;
-}
-hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
-
-
-pre , code, kbd, samp { 
-  color: #000; 
-  font-family: monospace; 
-  font-size: 0.88em; 
-  border-radius:3px;
-  background-color: #F8F8F8;
-  border: 1px solid #CCC; 
-}
-pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px 12px;}
-pre code { border: 0px !important; padding: 0;}
-code { padding: 0 3px 0 3px; }
-
-b, strong { font-weight: bold; }
-
-dfn { font-style: italic; }
-
-ins { background: #ff9; color: #000; text-decoration: none; }
-
-mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
-
-sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
-sup { top: -0.5em; }
-sub { bottom: -0.25em; }
-
-ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
-li p:last-child { margin:0 }
-dd { margin: 0 0 0 2em; }
-
-img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
-
-table { border-collapse: collapse; border-spacing: 0; }
-td { vertical-align: top; }
-
-@media only screen and (min-width: 480px) {
-body{font-size:14px;}
-}
-
-@media only screen and (min-width: 768px) {
-body{font-size:16px;}
-}
-
-@media print {
-  * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
-  body{font-size:12pt; max-width:100%; outline:none;}
-  a, a:visited { text-decoration: underline; }
-  hr { height: 1px; border:0; border-bottom:1px solid black; }
-  a[href]:after { content: " (" attr(href) ")"; }
-  abbr[title]:after { content: " (" attr(title) ")"; }
-  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
-  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
-  tr, img { page-break-inside: avoid; }
-  img { max-width: 100% !important; }
-  @page :left { margin: 15mm 20mm 15mm 10mm; }
-  @page :right { margin: 15mm 10mm 15mm 20mm; }
-  p, h2, h3 { orphans: 3; widows: 3; }
-  h2, h3 { page-break-after: avoid; }
-}
-</style><title>Readme</title></head><body><h1 id="前端构建工具说明">前端构建工具说明</h1>
-<h2 id="主要使用工具">主要使用工具</h2>
-<p><a href="http://seajs.org/docs/" title="seajs参考文档">seajs</a>: 一个前端模块化开发工具。同时提供配套构建插件</p>
-<p><a href="http://gruntjs.cn/" title="Grunt参考文档">Gruntjs</a>: 前端任务运行器.提供各类插件用于前端开发，例如<code>JSLint</code>代码检验，优化,<code>concat</code>合并文件插件,<code>uglify</code>压缩工具,与<code>CMD</code>规范(一种js模块化开发的规范提议)配合的<code>grunt-cmd-concat</code>,这里主要是用于配合<code>seajs</code>,将多个文件合并压缩</p>
-<h2 id="使用环境">使用环境</h2>
-<p>以上工具，构建环境需要<a href="http://nodejs.org/" title="nodeJs参考文档">nodeJs</a>。</p>
-<h1 id="目录结构说明">目录结构说明</h1>
-<ul>
-<li>.build 临时文件目录,构建过程中生成的临时目录，最终会被删除</li>
-<li>app 测试应用目录,</li>
-<li>dev 开发目录，此目录为生产环境中使用<ul>
-<li>app 各页面js文件,示例如下，假设有lend与account:<ul>
-<li>lend 借款相关界面<ul>
-<li>dist 目标文件与account相同<ul>
-<li>index-debug.js 生成的调试文件</li>
-<li>index.js 构建好的文件</li>
-<li>commom-debug.js</li>
-<li>commom.js</li>
-</ul>
-</li>
-<li>src 原文件<ul>
-<li>index.js</li>
-<li>commom.js</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>account 账户相关界面<ul>
-<li>dist <ul>
-<li>commom-debug.js</li>
-<li>commom.js </li>
-</ul>
-</li>
-<li>src<ul>
-<li>commom.js</li>
-<li>userCenter.js</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>hjs 公共组件js文件，下同，seajs,jquery</li>
-<li>jquery 有些库已经构建好了，所以没有包含src与dist目录，只是直接包含对应文件比如jquery与seajs。</li>
-<li>seajs</li>
-</ul>
-</li>
-<li>node_modules 开发环境依赖插件,如没有构建环境则无需理睬</li>
-<li>seajs_modules 部署应用目录,此目录中的文件应与线上环境是一致<ul>
-<li>app<ul>
-<li>lend<ul>
-<li>index-debug.js</li>
-<li>index.js</li>
-<li>commom-debug.js</li>
-<li>commom.js            </li>
-</ul>
-</li>
-<li>account<ul>
-<li>commom-debug.js</li>
-<li>commom.js</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>hjs 公共组件文件，非常简单的组件，没有区分版本，其下直接到已经构建过的文件<ul>
-<li>hjs.js</li>
-</ul>
-</li>
-<li>jquery<ul>
-<li>jquery<ul>
-<li>1.10.1<ul>
-<li>jquery.js</li>
-<li>jquery-debug.js 调试使用的文件</li>
-<li>package.json 发布的描述文件,用于seajs的spm平台，不用关注</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="http://seajs.org/docs/" title="seajs参考文档">seajs</a> <ul>
-<li>seajs<ul>
-<li>2.1.0</li>
-<li>2.1.1</li>
-<li>2.2.0 这里直接使用的最新版本</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>theme 样式目录<ul>
-<li>Gruntfile.js 构建文件</li>
-<li>package.json 依赖说明文件</li>
-<li>rootConfig.js 测试路径配置文件</li>
-</ul>
-</li>
-</ul>
-<h1 id="以hjs为实例的简单说明">以hjs为实例的简单说明</h1>
-<blockquote>
-<p>目录说明</p>
-</blockquote>
-<ul>
-<li>dev <code>开发目录此目录保留的为原始文件</code><ul>
-<li>hjs<ul>
-<li>1.0 <code>版本号</code><ul>
-<li>lib <code>less 样式库</code></li>
-<li>hjs.js</li>
-<li>hjs-ui.less <code>less样式原文件</code></li>
-<li>hjs-ui.css <code>编译后的样式文件</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>seajs_modules <code>已构建文件，发布位置.</code><ul>
-<li>hjs<ul>
-<li>1.0<ul>
-<li>hjs-debug.js</li>
-<li>hjs.js  <code>这里已将样式文件打包进了js文件</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p><code>Gruntfile</code>介绍</p>
-</blockquote>
-<p>Grunt会需要依次运行这么几个任务</p>
-<h2 id="transport"><code>transport</code>:</h2>
-<p>模块分析转换，将CMD模块的id以及路径提取出来，hjs并没有多个js文件合并，以两个假设文件来说明</p>
-<pre><code>//test.js文件
-define(function(require, exports, module) {
-    //这里假设引入了同一文件夹下的b.js文件.并调用了它导出的方法
-    var b = require("./b");
-    b.foo();
-});
-
-//b.js文件
-define(function(require, exports, module) {
-    require("app/test/dist/style.css");//这里假设引入了一个样式
-    module.exports = { //上面a.js文件所调用的方法
-        foo : function() {
-            console.log(" %c=======&gt; hello this is b &lt;======","font-size:18px;color:red;");
-        }
-    };
-});
-</code></pre>
-<p>当经过<code>transport</code>这个步骤以后,会转译出这么几个文件(这里可以自己指定output的文件位置，这些临时文件被我放到一个.build目录下),在临时文件目录下可以看到如下几个文件</p>
-<ul>
-<li>test.js</li>
-<li>test-debug.js</li>
-<li>b.js</li>
-<li>b-debug.js </li>
-</ul>
-<p><code>debug</code>文件与其它文件的区别只是，不会被压缩。下面是被提取模块名字后的两个文件</p>
-<pre><code>//test.js文件
-//转换后看到define的参数被补全了,都定义了其模块名字，和依赖,
-//并且根据配置文件package.json中的spm属性替换了样式的路径
-
-    define("app/test/dist/test", [ "./b", "http://css.wn.com:8080/grunt/seajs_modules/app/test/dist/style.css", "hjs", "jquery/jquery/1.10.1/jquery" ], function(require, exports, module) {
-        var b = require("./b");
-        b.foo();
-});
-
-//b.js文件
-define("app/test/dist/b", [ "http://css.wn.com:8080/grunt/seajs_modules/app/test/dist/style.css" ], function(require, exports, module) {
-
-    require("http://css.wn.com:8080/grunt/seajs_modules/app/test/dist/style.css");
-    module.exports = {
-        foo: function() {
-            console.log(" %c=======&gt; hello this is b &lt;======", "font-size:18px;color:red;");
-        }
-    };
-});
-
-//package.json 配置文件中影响提取模块名的属性
-"spm": {
-      "alias": {
-          "jquery" : "jquery/jquery/1.10.1/jquery",
-          "app/test/dist/style.css" : "http://css.wn.com:8080/grunt/seajs_modules/app/test/dist/style.css"
-        }
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    #au{
+      display: none;
     }
-</code></pre>
-<p><code>.build</code>目录出现并且有这么几个文件了，表示这个步骤的任务已经完成.接下来是</p>
-<h2 id="concat"><code>concat</code>:</h2>
-<p>合并任务,合并任务很简单,将debug文件合并到一起，非debug文件合并到一起。然后输出到部署的位置,我这里是seajs_modules目录</p>
-<h2 id="uglify"><code>uglify</code>:</h2>
-<p>这里将非debug文件构建输出到对应位置。</p></body></html>
+    </style>
+    <script type="text/javascript" src="visual.js" ></script>
+  </head>
+
+  <body>
+    <h1>MediaElementSource example</h1>
+    <div>
+    音频类型：
+    <select id="type_list">
+      <option value="lowpass" >lowpass</option>
+      <option value="highpass" >highpass</option>
+      <option value="bandpass" >bandpass</option>
+      <option value="lowshelf" >lowshelf</option>
+      <option value="highshelf" >highshelf</option>
+      <option value="peaking" >peaking</option>
+      <option value="notch" >notch</option>
+      <option value="allpass" >allpass</option>
+    </select>
+    </div>
+    <audio id="au"  src="Sugar_Fix.mp3" controls >  
+      <p>Browser too old to support HTML5 audio? How depressing!</p>
+    </audio>
+    <canvas width="400" height="200" id="canvas"  ></canvas>
+    <canvas width="500" height="200"  id="cv2" ></canvas>
+  </body>
+<script>
+var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+var analyser = audioCtx.createAnalyser();
+var canvas = document.getElementById("canvas");
+var audio = document.getElementById("au");
+var canvasCtx = canvas.getContext("2d");
+// audio.play();
+// 
+var source = audioCtx.createMediaElementSource( audio );
+
+source.connect( analyser );
+
+var biquadFilter = audioCtx.createBiquadFilter();
+
+analyser.connect( biquadFilter ) ;
+biquadFilter.connect(audioCtx.destination);
+
+
+audio.play();
+analyser.fftSize = 2048;
+
+var type_list = document.getElementById("type_list");
+
+type_list.onchange = function( e ){
+  biquadFilter.type = this.value ;
+};
+
+var WIDTH = canvas.width ;
+var HEIGHT = canvas.height ;
+
+var mv = new Vsee( document.getElementById("cv2") );
+var L = 0 ;
+mv.play(function () {
+      var bufferLength = analyser.frequencyBinCount;
+      var dataArray = new Uint8Array(bufferLength);
+      analyser.getByteTimeDomainData(dataArray);
+
+      this.fillStyle = 'rgb(200, 200, 200)';
+      this.fillRect(0, 0, mv.width, mv.height);
+
+      this.lineWidth = 2;
+      this.strokeStyle = 'rgb(0, 0, 0)';
+
+      this.beginPath();
+
+      var sliceWidth = mv.width * 1.0 / bufferLength;
+      var x = 0;
+      for(var i = 0; i < bufferLength; i++) {
+   
+        var v = dataArray[i] / 128.0;
+        var y = v * HEIGHT/2;
+
+        if(i === 0) {
+          this.moveTo(x, y);
+        } else {
+          this.lineTo(x, y);
+        }
+
+        x += sliceWidth;
+      }
+
+      this.lineTo(mv.width, mv.height/2);
+      this.stroke();
+});
+
+// draw an oscilloscope of the current audio source
+
+function draw() {
+      var drawVisual = requestAnimationFrame(draw);
+      var bufferLength = analyser.frequencyBinCount;
+      var dataArray = new Uint8Array(bufferLength);
+      analyser.getByteTimeDomainData(dataArray);
+
+      canvasCtx.fillStyle = 'rgb(200, 200, 200)';
+      canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
+
+      canvasCtx.lineWidth = 2;
+      canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
+
+      canvasCtx.beginPath();
+
+      var sliceWidth = WIDTH * 1.0 / bufferLength;
+      var x = 0;
+      for(var i = 0; i < bufferLength; i++) {
+   
+        var v = dataArray[i] / 128.0;
+        var y = v * HEIGHT/2;
+
+        if(i === 0) {
+          canvasCtx.moveTo(x, y);
+        } else {
+          canvasCtx.lineTo(x, y);
+        }
+
+        x += sliceWidth;
+      }
+
+      canvasCtx.lineTo(canvas.width, canvas.height/2);
+      canvasCtx.stroke();
+    };
+
+    draw();
+  </script>
+</html>
